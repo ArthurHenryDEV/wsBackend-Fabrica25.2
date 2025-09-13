@@ -9,9 +9,14 @@
     {% for heroi in herois %}
     <h1>{{ heroi.nome|upper }}</h1>
     <ul>
-        <li>{{ heroi.nome }}</li>
-        <li>{{ heroi.alter_ego }}</li>
-        <li>{{ heroi.editora }}</li>
+        <li><b>Nome do Herói:</b> {{ heroi.nome }}</li>
+        <li><b>Nome Completo:</b> {{ heroi.nome_completo }}</li>
+        <li><b>Editora:</b> {{ heroi.editora }}</li>
+        <li><b>Primeira Aparição:</b> {{ heroi.primeira_aparicao }}</li>
+        <li><b>Afilições:</b> {{ heroi.afiliacoes }}</li>
+        <li><b>Local/Base:</b> {{ heroi.local_base }}</li>
+        <li><b>Nível de Poder:</b> {{ heroi.poder }}</li>
+        <img src= "{{ heroi.imagem }}" alt= "Imagem do Herói"> <br> 
         <a href="{% url 'editar_heroi' heroi.pk %}">Editar</a> <!--Update-->
         <a href="{% url 'deletar_heroi' heroi.pk %}">Deletar Herói</a> <!--Delete-->
     </ul>
