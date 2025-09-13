@@ -21,4 +21,15 @@ def listar_heroi(request):
     herois = HeroiModel.objects.all()
     return render(request, 'listar_heroi.html', {'herois' : herois})
 
+def editar_heroi(request, pk):
+    heroi = HeroiModel.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = HeroiForm(request.POST, instance=heroi)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_heroi')
+    else:
+        form = HeroiForm(instance=heroi)
+    return render(request, 'cadastro_heroi.html', {'form': form})
+
 

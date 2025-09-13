@@ -12,8 +12,9 @@
         <li>{{ heroi.nome }}</li>
         <li>{{ heroi.alter_ego }}</li>
         <li>{{ heroi.editora }}</li>
+        <a href="{% url 'editar_heroi' heroi.pk %}">Editar</a> <!--Update-->
     </ul>
     {% endfor %}
-    <a href="{% url 'cadastro_heroi' %}">Cadastrar Herói</a>
+    <a href="{% url 'cadastro_heroi' %}">Cadastrar Herói</a> <!--Link para cadastrar + 1 herói--> 
 </body>
 </html>
