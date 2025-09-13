@@ -32,4 +32,9 @@ def editar_heroi(request, pk):
         form = HeroiForm(instance=heroi)
     return render(request, 'cadastro_heroi.html', {'form': form})
 
-
+def deletar_heroi(request, pk):
+    heroi = HeroiModel.objects.get(pk=pk)
+    if request.method == 'POST':
+        heroi.delete()
+        return redirect ('listar_heroi')
+    return render(request, 'confirmar_delete.html', {'heroi': heroi})
