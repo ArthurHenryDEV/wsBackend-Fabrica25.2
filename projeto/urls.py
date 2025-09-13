@@ -15,8 +15,9 @@ Incluindo outra configuração de URL
     2. Adicione uma URL ao urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('herois.urls')),
 ]
