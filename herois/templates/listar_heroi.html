@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Heróis</title>
+</head>
+<body>
+    {% for heroi in herois %}
+    <h1>{{ heroi.nome|upper }}</h1>
+    <ul>
+        <li>{{ heroi.nome }}</li>
+        <li>{{ heroi.alter_ego }}</li>
+        <li>{{ heroi.editora }}</li>
+    </ul>
+    {% endfor %}
+    <a href="{% url 'cadastro_heroi' %}">Cadastrar Herói</a>
+</body>
+</html>

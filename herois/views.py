@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.http import HttpResponse
 from .forms import HeroiForm
+from .models import HeroiModel
 
 def home(request):
     return render(request, 'home.html')
@@ -15,4 +16,9 @@ def cadastro_heroi(request):
     else:
         form = HeroiForm()
     return render(request, 'cadastro_heroi.html', {'form': form})
+
+def listar_heroi(request):
+    herois = HeroiModel.objects.all()
+    return render(request, 'listar_heroi.html', {'herois' : herois})
+
 
