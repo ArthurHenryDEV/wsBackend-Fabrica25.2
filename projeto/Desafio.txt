@@ -1,0 +1,29 @@
+* CRIAR UM PROJETO DJANGO EM TEMPLATE OU API *
+
+Deve possuir todo o CRUD (Create, Read, Update, Delete) do Django com duas ou mais
+entidades relacionadas, mas além disso possua a capacidade de consumir uma API externa
+gratuita da lista definida pelos instrutores. 
+Serão requisitos:
+
+*   .gitignore
+*   requirements.txt
+*   README.md
+
+* DIFERENCIAIS *
+
+*   Instalar um banco de dados externo (MySql | PostGreSQL)
+
+*   Uso de commits semânticos
+
+*   Seguir boas práticas de programação
+    (organização de diretórios e branches, nomes de arquivos
+    funções e entidades).
+
+*   Boa documentação e repositório GitHub
+
+*   Criar uma página funcional e organizada com HTML, CSS
+    e Jinja (Django Template)
+
+*   Fazer o Docker-compose da aplicação
+
+*   Tokens de Autenticação (SimpleJWT)
