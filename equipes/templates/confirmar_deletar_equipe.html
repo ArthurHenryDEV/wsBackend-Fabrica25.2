@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Delete</title>
+</head>
+<body>
+    <form method ="post">
+        {% csrf_token %}
+        <p>Tem certeza que deseja deletar {{ equipe.nome }}?</p>
+        <button type="submit">Salvar</button>
+    </form>
+    
+</body>
+</html>
