@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico de Anos</title>
 </head>
 <body>
-    <h1>Histórico de anos buscados</h1>
-    <ul>
-        {% for registro in anos %}
-        <li>
-            <strong>{{ registro.ano }}</strong>: {{ registro.herois }}
-            | <a href="{% url 'deletar_ano' registro.pk %}">Deletar</a>
-            | <a href="{% url 'editar_ano' registro.pk %}">Editar</a>
-        </li>
-        {% empty %}
-        <li>Nenhum registro ainda.</li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>Histórico de Anos</h1>
+        <nav>
+            <a href="{% url 'home_ano' %}">Buscar Ano</a>
+            <a href="{% url 'buscar_ano' %}">Ver Heróis</a>
+        </nav>
+    </header>
 
-    <br>
-    <a href="{% url 'home_ano' %}">Voltar</a>
+    <main>
+        <div class="year-list">
+            {% for registro in anos %}
+                <div class="year-card">
+                    <h3>{{ registro.ano }}</h3>
+                    <p>{{ registro.herois }}</p>
+                    <div class="year-buttons">
+                        <form action="{% url 'editar_ano' registro.pk %}" method="get">
+                            <button type="submit">Editar</button>
+                        </form>
+                        <a href= "{% url 'deletar_ano' registro.pk %}" class = "delete-btn">Deletar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
 </body>
 </html>

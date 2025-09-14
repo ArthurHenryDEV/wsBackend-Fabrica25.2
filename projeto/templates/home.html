@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
@@ -9,6 +11,6 @@
     <h1>Bem-vindo à página inicial!</h1>
     <p>Selecione sua opção:</p>
     <a href="{% url 'home_ano' %}">Buscar ano</a> <br>
-    <a href="{% url 'home_herois' %}">Ver Heróis</a>
+    <a href="{% url 'home_herois' %}">Buscar Personagens</a>
 </body>
 </html>

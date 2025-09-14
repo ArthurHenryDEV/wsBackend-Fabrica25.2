@@ -1,0 +1,168 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Anton', sans-serif; 
+    background: linear-gradient(135deg, #ff0000, #ffcc00, #1a1aff);
+    color: #fff;
+    min-height: 100vh;
+    padding : 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Cabeçalho */
+header {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px; ;
+}
+
+/* Links principais */
+a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #ff0000;
+    border-radius: 8px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    background-color: rgba(255,0,0,0.8);
+}
+
+a:hover {
+    background-color: #fff;
+    color: #ff0000;
+    transform: scale(1.05);
+}
+
+/* Títulos e textos */
+h1, h2, h3 {
+    text-shadow: 2px 2px 5px #000;
+}
+
+p {
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Formulários */
+form {
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
+/* Botão de submit */
+button {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e50914;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #b00610;
+    transform: scale(1.05);
+}
+
+/* Lista de heróis */
+
+.year-litst {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    
+}
+.year-card {
+    background: rgba(0,0,0,0.6);
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.year-card h3 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+year-card p {
+    margin-bottom: 20px;
+}
+
+.hero-card:hover {
+    transform: scale(1.05);
+}
+
+.card-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+.card-text p {
+    font-size: 1rem;
+}
+
+.card-image {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.card-image img {
+    display: block;         
+    margin: 0 auto;          
+    max-width: 100%;         
+    border-left: 2px solid #ff0000;
+
+}
+
+/* Rodapé */
+
+footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    margin-top: auto;
+    font-size: 1rem;
+}

@@ -18,6 +18,8 @@ from .views import home
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -25,4 +27,5 @@ urlpatterns = [
     path('herois/', include('herois.urls')),
     path('anos/', include('anos.urls')),
     path('', home, name= 'home'),
-]
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

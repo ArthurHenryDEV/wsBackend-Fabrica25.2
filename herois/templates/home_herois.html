@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
@@ -8,8 +10,8 @@
 <body>
     <h1>Bem-vindo à página inicial!</h1>
     <p>Selecione sua opção:</p>
-    <a href="{% url 'cadastro_heroi' %}">Cadastrar</a> <br>
-    <a href="{% url 'listar_heroi' %}">Ver Heróis</a> <br>
+    <a href="{% url 'cadastro_heroi' %}">Buscar Personagem</a> <br>
+    <a href="{% url 'listar_heroi' %}">Ver Personagens</a> <br>
     <a href="{% url 'home' %}">Voltar para o Home</a>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Heróis</title>
@@ -9,7 +11,7 @@
     {% for heroi in herois %}
     <h1>{{ heroi.nome|upper }}</h1>
     <ul>
-        <li><b>Nome do Herói:</b> {{ heroi.nome }}</li>
+        <li><b>Nome do Personagem:</b> {{ heroi.nome }}</li>
         <li><b>Nome Completo:</b> {{ heroi.nome_completo }}</li>
         <li><b>Editora:</b> {{ heroi.editora }}</li>
         <li><b>Primeira Aparição:</b> {{ heroi.primeira_aparicao }}</li>
@@ -18,10 +20,10 @@
         <li><b>Nível de Poder:</b> {{ heroi.poder }}</li>
         <img src= "{{ heroi.imagem }}" alt= "Imagem do Herói"> <br> 
         <a href="{% url 'editar_heroi' heroi.pk %}">Editar</a> <!--Update-->
-        <a href="{% url 'deletar_heroi' heroi.pk %}">Deletar Herói</a> <!--Delete-->
+        <a href="{% url 'deletar_heroi' heroi.pk %}">Deletar Personagem</a> <!--Delete-->
     </ul>
     {% endfor %}
-    <a href="{% url 'cadastro_heroi' %}">Cadastrar Herói</a> <!--Link para cadastrar + 1 herói--> <br>
+    <a href="{% url 'cadastro_heroi' %}">Buscar personagem</a> <!--Link para cadastrar + 1 herói--> <br>
     <a href="{% url 'home' %}">Voltar para o Home</a>
 </body>
 </html>
