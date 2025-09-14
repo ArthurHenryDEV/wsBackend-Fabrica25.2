@@ -16,8 +16,11 @@ Incluindo outra configuração de URL
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('herois.urls')),
+    path('herois/', include('herois.urls')),
+    path('equipes/', include('equipes.urls')),
+    path('', home, name= 'home'),
 ]

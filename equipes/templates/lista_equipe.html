@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Equipes</title>
+</head>
+<body>
+    {% for equipe in equipes %}
+    <h1>{{ equipe.nome|upper }}</h1>
+    <ul>
+        <li><b>Nome do Herói:</b> {{ heroi.nome }}</li>
+        <li><b>Nome Completo:</b> {{ heroi.nome_completo }}</li>
+        
+        <img src= "{{ heroi.imagem }}" alt= "Imagem do Herói"> <br> 
+        <a href="{% url 'editar_heroi' heroi.pk %}">Editar</a> <!--Update-->
+        <a href="{% url 'deletar_heroi' heroi.pk %}">Deletar Herói</a> <!--Delete-->
+    </ul>
+    {% endfor %}
+    <a href="{% url 'cadastro_heroi' %}">Cadastrar Herói</a> <!--Link para cadastrar + 1 herói--> <br>
+    <a href="{% url 'home' %}">Voltar para o Home</a>
+</body>
+</html>

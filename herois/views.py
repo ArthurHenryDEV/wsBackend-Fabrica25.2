@@ -4,9 +4,6 @@ from .forms import HeroiForm  # Importa o formulário do herói criado em forms.
 from .models import HeroiModel  # Importa o modelo do herói criado em models.py
 import requests  # Biblioteca para fazer requisições HTTP externas (API)
 
-# Função para renderizar a página inicial
-def home(request):
-    return render(request, 'home.html')  # Retorna o template 'home.html'
 
 # Função para cadastrar herói via API
 def cadastro_heroi(request): 
@@ -96,3 +93,6 @@ def deletar_heroi(request, pk):
 def listar_heroi(request):
     herois = HeroiModel.objects.all()  # Pega todos os heróis do banco
     return render(request, 'listar_heroi.html', {'herois' : herois})  # Renderiza template com lista
+
+def home_herois(request):
+    return render(request, 'home_herois.html')
