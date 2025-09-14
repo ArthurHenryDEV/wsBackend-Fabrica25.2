@@ -1,6 +1,11 @@
+@ -1,207 +1,59 @@
 # Arquivos compilados / otimizados / DLL
+# -----------------------
+# Python
+# -----------------------
 __pycache__/
 *.py[codz]
+*.py[cod]
 *$py.class
 
 # Extensões C
@@ -31,12 +36,51 @@ MANIFEST
 #  antes que o PyInstaller construa o exe, para injetar data/outros dados nele.
 *.manifest
 *.spec
+*.egg-info/
+dist/
+build/
 
 # Logs do instalador
 pip-log.txt
 pip-delete-this-directory.txt
+# -----------------------
+# Virtual environments
+# -----------------------
+venv/
+ENV/
+env/
+.venv/
 
 # Relatórios de teste unitário / cobertura
+# -----------------------
+# Django
+# -----------------------
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# -----------------------
+# Editor e IDE
+# -----------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# -----------------------
+# Sistema operacional
+# -----------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------
+# Testes / cobertura
+# -----------------------
+.coverage
 htmlcov/
 .tox/
 .nox/
@@ -48,6 +92,7 @@ coverage.xml
 *.cover
 *.py.cover
 .hypothesis/
+pytest_cache/
 .pytest_cache/
 cover/
 
@@ -143,6 +188,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+venv
 
 # Configurações de projeto do Spyder
 .spyderproject
@@ -205,3 +251,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+# -----------------------
+# Outros
+# -----------------------
+*.env
+*.env.local
+*.env.*.local
