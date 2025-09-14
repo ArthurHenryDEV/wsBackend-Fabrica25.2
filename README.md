@@ -1,8 +1,8 @@
 # wsBackend-Fabrica25.2
+Desafio da Fábrica de Software 2025.2
 
-# Super Hero Tracker 🦸‍♂️🦹‍♂️
-
-Um projeto Django para buscar e listar heróis e vilões de quadrinhos por ano de primeira aparição, utilizando a API pública de super-heróis da Akabab.
+# 🦸 Biblioteca de Super-Heróis com Django e API
+Um projeto Django para buscar e listar heróis e vilões de quadrinhos por nome ou ano de primeira aparição, utilizando a API pública de super-heróis da Akabab.
 
 ## 📚 Tabela de Conteúdos
 
@@ -27,7 +27,7 @@ Este projeto permite:
 
 O projeto utiliza **Django** como framework web e integra **API pública de super-heróis** para buscar dados.
 
-## ⚡Funcionalidades
+## ⚡ Funcionalidades
 
 - [x] Buscar heróis por ano.
 - [x] Listar todos os anos cadastrados.
@@ -48,71 +48,120 @@ O projeto utiliza **Django** como framework web e integra **API pública de supe
 ## ⚒️ Instalação
 
 1. Clone o repositório:
-
-```bash
-git clone https://github.com/seu-usuario/super-hero-tracker.git
-cd super-hero-tracker
+<pre>
+git clone <url-do-repositorio>
+cd meuprojeto
+</pre>
 
 2. Crie o ambiente virtual:
 
-  # macOS / Linux
+  ### macOS / Linux
+  <pre>
 python3 -m venv venv
 source venv/bin/activate
-   
-  # windows
+  </pre>
+  ### Windows
+  <pre>
+python -m venv venv
 venv\Scripts\activate
-  
+  </pre>
 
 3. Instale as dependências:
-
+<pre>
 pip install -r requirements.txt
-
+</pre>
 4. Execute as migrações do Django:
-
+<pre>
+python manage.py makemigrations
 python manage.py migrate
-
+</pre>
 5. Inicie o servidor de desenvolvimento:
-
+<pre>
 python manage.py runserver
+</pre>
+6.	Abra o navegador em: http://127.0.0.1:8000/ 
 
-6.	Abra o navegador em: http://127.0.0.1:8000/
+## 🧰 Uso
 
-## Uso
+•	Na página inicial, escolha entre buscar por ano ou por heróis/vilões.
 
-•	Na página inicial, escolha entre buscar por ano ou ver heróis.
 •	Para buscar por ano, digite o ano e veja os heróis/vilões que apareceram.
-•	Nos registros de anos, você pode editar ou deletar os registros existentes.
-•	Cada herói é exibido em um card com imagem à direita e informações à esquerda.
+
+•	Nos registros de anos, você pode editar ou deletar os registros 
+existentes.
+
+•	Cada herói é exibido em um card com imagem à direita e informações à  	     esquerda.
 
 ## 🧱 Estrutura do Projeto
-
-super-hero-tracker/
+<pre>
+wsBackend-Fabrica25.2/
 │
-├─ projeto/                # Configurações do Django
-├─ anos/                   # App responsável pelos anos e heróis
-│  ├─ templates/           # HTMLs
-│  ├─ static/css/          # Arquivos CSS
+├─ projeto/                  # Pasta principal do Django (settings, urls, wsgi/asgi)
+│  ├─ __init__.py
+│  ├─ settings.py
+│  ├─ urls.py
+│  ├─ wsgi.py
+│  ├─ asgi.py
+│  ├─ templates/             # Templates globais do projeto
+│  │  └─ home.html
+│
+├─ herois/                   # App 1 - Heróis
+│  ├─ migrations/
+│  ├─ templates/
+│  │  └─ herois/             # Templates específicos do app
+│  │     ├─ listar_herois.html
+│  │     ├─ criar_heroi.html
+│  │     ├─ editar_heroi.html
+│  │     ├─ deletar_heroi.html
+│  │     └─ detalhes_heroi.html
 │  ├─ models.py
 │  ├─ views.py
 │  ├─ forms.py
 │  └─ urls.py
-├─ venv/                   # Ambiente virtual (ignorada pelo Git)
-├─ requirements.txt
-├─ .gitignore
-└─ manage.py
-
+│
+├─ anos/                     # App 2 - Anos
+│  ├─ migrations/
+│  ├─ templates/
+│  │  └─ anos/               # Templates específicos do app
+│  │     ├─ listar_anos.html
+│  │     ├─ criar_ano.html
+│  │     ├─ editar_ano.html
+│  │     ├─ deletar_ano.html
+│  │     ├─ detalhes_ano.html
+│  │     └─ buscar_ano.html
+│  ├─ models.py
+│  ├─ views.py
+│  ├─ forms.py
+│  └─ urls.py
+│
+├─ static/                   # Arquivos estáticos globais
+│  └─ css/
+│     └─ styles.css
+│
+├─ venv/                     # Ambiente virtual (ignorada pelo Git)
+├─ requirements.txt          # Dependências do projeto
+├─ .gitignore                # Arquivos/pastas ignorados pelo Git
+└─ manage.py                 # Arquivo principal do Django
+</pre> 
 ## 🥂 Contribuição
 
 Contribuições são bem-vindas!
-	1.	Faça um fork do projeto.
-	2.	Crie uma branch (git checkout -b feature/nova-funcionalidade).
-	3.	Faça suas alterações.
-	4.	Commit suas mudanças seguindo o padrão semântico:
-
+	
+ 1.	Faça um fork do projeto.
+	
+ 2.	Crie uma branch:
+  <pre>
+  git checkout -b feature/nova-funcionalidade).
+</pre>
+ 
+ 3.	Faça suas alterações.
+	
+ 4.	Commit suas mudanças seguindo o padrão semântico:
+<pre>
   git commit -m "feat: adicionar nova funcionalidade X
+</pre> 
+5. Faça push para sua branch e abra um Pull Request."
 
-  5.	Faça push para sua branch e abra um Pull Request."
-
-## Autor
+## ✍️ Autor
 
 Arthur Henry Dias Paiva
