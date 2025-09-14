@@ -1,8 +1,8 @@
 from django import forms
+from . models import AnoModel
 
-class AnoForm(forms.Form):
-    ano = forms.CharField(
-        label="Digite o ano",
-        max_length=4,
-        widget=forms.TextInput(attrs={'placeholder': 'Ex: 1968'})
-    )
+class AnoForm(forms.ModelForm):
+    class Meta:
+        model = AnoModel
+        fields = ['ano']
+      

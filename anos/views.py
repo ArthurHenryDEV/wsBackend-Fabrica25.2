@@ -24,7 +24,7 @@ def buscar_ano(request):
                     herois_filtrados.append({
                         "nome": heroi["name"],
                         "primeira_aparicao": aparicao,
-                        "imagem": heroi["images"]["xs"]
+                        "imagem": heroi["images"]["sm"]
                     })
 
             # salvar no banco apenas os nomes encontrados
@@ -45,18 +45,40 @@ def deletar_ano(request, pk):
     registro = get_object_or_404(Ano, pk=pk)
     if request.method == "POST":
         registro.delete()
-        return redirect("lista_anos")
+        return redirect("lista_ano")
     return render(request, "confirmar_delete_ano.html", {"registro": registro})
 
 
 def editar_ano(request, pk):
-    ano_obj = get_object_or_404(AnoModel, pk=pk)
+    registro = get_object_or_404(Ano, pk=pk)
     if request.method == 'POST':
-        form = AnoForm(request.POST, instance=ano_obj)
+        form = AnoForm(request.POST, instance=registro)
         if form.is_valid():
             form.save()
+
+            # atualizar heróis do ano
+            ano_digitado = form.cleaned_data['ano']
+            herois_filtrados = []
+
+            response = requests.get(URL)
+            if response.status_code == 200:
+                data = response.json()
+                for heroi in data:
+                    aparicao = heroi["biography"]["firstAppearance"]
+                    if aparicao and str(ano_digitado) in aparicao:
+                        herois_filtrados.append({
+                            "nome": heroi["name"],
+                            "primeira_aparicao": aparicao,
+                            "imagem": heroi["images"]["xs"]
+                        })
+
+                if herois_filtrados:
+                    nomes = ", ".join([h["nome"] for h in herois_filtrados])
+                    registro.herois = nomes
+                    registro.save()
+
             return redirect('lista_ano')
     else:
-        form = AnoForm(instance=ano_obj)
-    return render(request, 'buscar_ano.html', {'form': form})
+        form = AnoForm(instance=registro)
 
+    return render(request, 'editar_ano.html', {'form': form, 'registro': registro})
