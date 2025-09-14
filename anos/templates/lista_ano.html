@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Heróis do ano {{ ano }}</title>
+</head>
+<body>
+    <h2>Heróis do ano {{ ano }}</h2>
+    <a href="{% url 'home_ano' %}">Voltar</a>
+
+    {% if herois %}
+        <ul>
+        {% for heroi in herois %}
+            <li>
+                <strong>Nome:</strong> {{ heroi.nome }} <br>
+                <strong>Primeira Aparição:</strong> {{ heroi.primeira_aparicao }} <br>
+                {% if heroi.imagem %}
+                    <img src="{{ heroi.imagem }}" alt="{{ heroi.nome }}" width="150">
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum herói encontrado para este ano.</p>
+    {% endif %}
+</body>
+</html>

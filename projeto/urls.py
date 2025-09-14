@@ -14,13 +14,15 @@ Incluindo outra configuração de URL
     1. Importe a função include(): from django.urls import include, path
     2. Adicione uma URL ao urlpatterns:  path('blog/', include('blog.urls'))
 """
+from .views import home
+
 from django.contrib import admin
 from django.urls import path, include
-from .views import home
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('herois/', include('herois.urls')),
-    path('equipes/', include('equipes.urls')),
+    path('anos/', include('anos.urls')),
     path('', home, name= 'home'),
 ]

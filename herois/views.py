@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect  # Importa funções para renderizar templates e redirecionar URLs
-from django.http import HttpRequest, HttpResponse  # Importa classes para lidar com requisições e respostas HTTP
-from .forms import HeroiForm  # Importa o formulário do herói criado em forms.py
-from .models import HeroiModel  # Importa o modelo do herói criado em models.py
 import requests  # Biblioteca para fazer requisições HTTP externas (API)
 
+from .forms import HeroiForm  # Importa o formulário do herói criado em forms.py
+from .models import HeroiModel  # Importa o modelo do herói criado em models.py
 
+from django.shortcuts import render, redirect  # Importa funções para renderizar templates e redirecionar URLs
+from django.http import HttpResponse  # Importa classes para lidar com requisições e respostas HTTP
+
+ 
 # Função para cadastrar herói via API
 def cadastro_heroi(request): 
     if request.method == "POST":  # Se o formulário foi enviado

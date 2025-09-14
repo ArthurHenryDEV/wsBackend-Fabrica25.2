@@ -1,5 +1,11 @@
 from django.db import models  # Importa o módulo de models do Django, usado para criar tabelas no banco de dados
 
+
+
+
+
+    
+
 # Define a classe HeroiModel que representa uma tabela no banco de dados
 class HeroiModel(models.Model):
 
@@ -22,7 +28,25 @@ class HeroiModel(models.Model):
 
     # Data de criação do registro (é preenchida automaticamente quando o herói é criado)
     data_criacao = models.DateField(auto_now_add=True)
-    
+    # Relaciona cada heroi à uma equipe (on_delete=models.SET_NULL) - Se a equipe for deletada, o herói continua existindo, mas sem equipe.
+    # null=Truwe, blank=True - Pode n ter equipe
+    # related_name="herois" - permite acessar todos os heróis de uma equipe 
+   
+
+
     # Define como o objeto será exibido no admin e em representações de string
     def __str__(self):
         return self.nome
+
+
+
+    descricao = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.nome
+    
+
+# Define a classe HeroiModel que representa uma tabela no banco de dados
+
+    
+

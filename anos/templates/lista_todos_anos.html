@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Anos</title>
+</head>
+<body>
+    <h1>Histórico de anos buscados</h1>
+    <ul>
+        {% for registro in anos %}
+        <li>
+            <strong>{{ registro.ano }}</strong>: {{ registro.herois }}
+            | <a href="{% url 'deletar_ano' registro.id %}">Deletar</a>
+        </li>
+        {% empty %}
+        <li>Nenhum registro ainda.</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="{% url 'home_ano' %}">Voltar</a>
+</body>
+</html>

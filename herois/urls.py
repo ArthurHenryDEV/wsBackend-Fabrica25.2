@@ -1,5 +1,6 @@
-from django.contrib import admin
 from django.urls import path
+from django.contrib import admin
+
 from .views import cadastro_heroi, listar_heroi, editar_heroi, deletar_heroi, home_herois
 
 urlpatterns = [
