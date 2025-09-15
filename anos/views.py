@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
-from .forms import AnoForm
-from .models import AnoModel, Ano
 import requests
+
+from .forms import AnoForm
+from .models import AnoModel
+
+from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 
 
 URL = "https://akabab.github.io/superhero-api/api/all.json"
@@ -13,7 +15,6 @@ def home_ano(request):
 def buscar_ano(request):
     ano_digitado = request.GET.get("ano")
     herois_filtrados = []
-
     if ano_digitado:
         response = requests.get(URL)
         if response.status_code == 200:
@@ -26,23 +27,20 @@ def buscar_ano(request):
                         "primeira_aparicao": aparicao,
                         "imagem": heroi["images"]["sm"]
                     })
-
-            # salvar no banco apenas os nomes encontrados
             if herois_filtrados:
                 nomes = ", ".join([h["nome"] for h in herois_filtrados])
-                Ano.objects.create(ano=ano_digitado, herois=nomes)
-
+                AnoModel.objects.create(ano=ano_digitado, herois=nomes)
     return render(request, "lista_ano.html", {
         "ano": ano_digitado,
         "herois": herois_filtrados
     })
 
 def lista_anos(request):
-    anos = Ano.objects.all()
+    anos = AnoModel.objects.all()
     return render(request, "lista_todos_anos.html", {"anos": anos})
 
 def deletar_ano(request, pk):
-    registro = get_object_or_404(Ano, pk=pk)
+    registro = get_object_or_404(AnoModel, pk=pk)
     if request.method == "POST":
         registro.delete()
         return redirect("lista_ano")
@@ -50,16 +48,13 @@ def deletar_ano(request, pk):
 
 
 def editar_ano(request, pk):
-    registro = get_object_or_404(Ano, pk=pk)
+    registro = get_object_or_404(AnoModel, pk=pk)
     if request.method == 'POST':
         form = AnoForm(request.POST, instance=registro)
         if form.is_valid():
             form.save()
-
-            # atualizar heróis do ano
             ano_digitado = form.cleaned_data['ano']
             herois_filtrados = []
-
             response = requests.get(URL)
             if response.status_code == 200:
                 data = response.json()
@@ -71,14 +66,11 @@ def editar_ano(request, pk):
                             "primeira_aparicao": aparicao,
                             "imagem": heroi["images"]["xs"]
                         })
-
                 if herois_filtrados:
                     nomes = ", ".join([h["nome"] for h in herois_filtrados])
                     registro.herois = nomes
                     registro.save()
-
             return redirect('lista_ano')
     else:
         form = AnoForm(instance=registro)
-
     return render(request, 'editar_ano.html', {'form': form, 'registro': registro})

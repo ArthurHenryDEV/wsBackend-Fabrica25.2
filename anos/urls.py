@@ -1,5 +1,7 @@
-from django.urls import path
 from . import views
+
+from django.urls import path
+
 
 urlpatterns = [
     path('buscar/', views.buscar_ano, name='buscar_ano'),
